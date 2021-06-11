@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { TextField, Button } from "@material-ui/core";
+import { Grid, TextField, Button } from "@material-ui/core";
 import { fetchUserLoginRequest } from "./redux";
 import { REQUEST_STATUS } from "../../utils";
 
@@ -41,27 +41,29 @@ const LoginPage = () => {
 
   return (
     <form onSubmit={onLogin}>
-      <TextField
-        id="email"
-        label="Email"
-        type="email"
-        value={email}
-        onChange={onChangeEmail}
-        required
-      />
-
-      <TextField
-        id="login"
-        label="Mot de passe"
-        type="password"
-        value={password}
-        onChange={onChangePassword}
-        required
-      />
-      <Button variant="contained" color="primary" type="submit">
-        Se connecter
-      </Button>
-      {hasError && <div>{hasError}</div>}
+      <Grid container direction="column" justify="center" alignItems="center">
+        <TextField
+          id="email"
+          label="Email"
+          type="email"
+          value={email}
+          onChange={onChangeEmail}
+          required
+        />
+        <TextField
+          id="login"
+          label="Mot de passe"
+          type="password"
+          value={password}
+          onChange={onChangePassword}
+          required
+        />
+        <br />
+        <Button variant="contained" color="primary" type="submit">
+          Se connecter
+        </Button>
+        {hasError && <div>{hasError}</div>}{" "}
+      </Grid>
     </form>
   );
 };
