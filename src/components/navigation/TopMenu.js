@@ -24,6 +24,17 @@ const TopMenu = () => {
             Two page
           </Link>
         </Button>
+        <Button color="inherit">
+          {!localStorage.getItem("jwt") ? (
+            <Link to="/login" className={classes.link}>
+              Login
+            </Link>
+          ) : (
+            <Link to="/logout" className={classes.link}>
+              Logout
+            </Link>
+          )}
+        </Button>
       </Toolbar>
     </AppBar>
   );
